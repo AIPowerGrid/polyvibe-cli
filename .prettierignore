@@ -15,6 +15,9 @@
 bower_components
 eslint.config.js
 **/generated
+**/src/generated
 gha-creds-*.json
 junit.xml
 Thumbs.db
+Makefile
+*.mk
