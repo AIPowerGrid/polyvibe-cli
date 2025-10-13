@@ -44,6 +44,10 @@ jobs:
         run: |-
           npm ci --prefer-offline --no-audit --progress=false
 
+      - name: 'Build project'
+        run: |-
+          npm run build
+
       - name: 'Run formatter check'
         run: |-
           npm run format
@@ -52,10 +56,6 @@ jobs:
       - name: 'Run linter'
         run: |-
           npm run lint:ci
-
-      - name: 'Build project'
-        run: |-
-          npm run build
 
       - name: 'Run type check'
         run: |-
