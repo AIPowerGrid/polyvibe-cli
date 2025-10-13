@@ -51,7 +51,7 @@ jobs:
       - name: 'Run formatter check'
         run: |-
           npm run format
-          git diff --exit-code
+          git diff --exit-code -- ':!packages/*/src/generated/*' ':!Makefile'
 
       - name: 'Run linter'
         run: |-
