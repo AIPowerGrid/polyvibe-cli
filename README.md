@@ -10,31 +10,33 @@
 
 ## What's New in PolyVibe CLI
 
-- **Local model support** (GPT OSS 120B, Ollama, LM Studio, etc.)
+- **OpenAI-compatible API support** (works with any OpenAI-compatible endpoint)
+- **Local model support** (Ollama, LM Studio, vLLM, LocalAI, etc.)
 - **Polygon-optimized** for dApp development
 - **Commands**: `polyvibe` or `pv` for quick access
-- **DashScope Intl** support for Qwen models
 
-## Quick Start with DashScope
+## Quick Start
 
-### 1. Get your DashScope API key
+### 1. Install dependencies
 
-Sign up at [DashScope International](https://dashscope.aliyuncs.com/) and get your API key.
-
-### 2. Configure environment
-
-Edit `.env.example` to `.env` and add your key:
-
-```env
-OPENAI_API_KEY=your-dashscope-api-key
-OPENAI_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
-OPENAI_MODEL=qwen3-coder-plus
+```bash
+cd /Users/j/polyvibe-cli/cli
+npm install
 ```
+
+### 2. Configure your model
+
+Copy `.env.example` to `.env` and configure your model endpoint:
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` with your model settings (see Configuration section below).
 
 ### 3. Run PolyVibe CLI
 
 ```bash
-cd /Users/j/polyvibe-cli/cli
 npm start
 ```
 
@@ -68,42 +70,51 @@ polyvibe "Help me create a Polygon NFT contract"
 
 ## Configuration
 
-### Using Different Models
+PolyVibe CLI works with any OpenAI-compatible API endpoint. Edit `.env` to configure your model:
 
-Edit `.env` to switch models:
-
-**Ollama:**
+### Ollama (Local)
 ```env
+OPENAI_API_KEY=ollama
 OPENAI_BASE_URL=http://localhost:11434/v1
 OPENAI_MODEL=llama3
 ```
 
-**LM Studio:**
+### LM Studio (Local)
 ```env
+OPENAI_API_KEY=lm-studio
 OPENAI_BASE_URL=http://localhost:1234/v1
 OPENAI_MODEL=your-model-name
 ```
 
-**Local GPT OSS 120B:**
+### vLLM (Local)
 ```env
-OPENAI_API_KEY=sk-no-key-required
+OPENAI_API_KEY=vllm
+OPENAI_BASE_URL=http://localhost:8000/v1
+OPENAI_MODEL=your-model-name
+```
+
+### LocalAI (Local)
+```env
+OPENAI_API_KEY=local
 OPENAI_BASE_URL=http://localhost:8080/v1
-OPENAI_MODEL=gpt-oss-120b
+OPENAI_MODEL=your-model-name
 ```
 
-**DashScope Intl (Qwen models):**
+### OpenAI (Cloud)
 ```env
-OPENAI_API_KEY=your-dashscope-api-key
-OPENAI_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
-OPENAI_MODEL=qwen3-coder-plus
-```
-
-**Cloud (OpenAI):**
-```env
-OPENAI_API_KEY=your-actual-api-key
+OPENAI_API_KEY=sk-your-actual-api-key
 OPENAI_BASE_URL=https://api.openai.com/v1
 OPENAI_MODEL=gpt-4
 ```
+
+### Any other OpenAI-compatible API
+```env
+OPENAI_API_KEY=your-api-key
+OPENAI_BASE_URL=https://your-endpoint.com/v1
+OPENAI_MODEL=your-model-name
+```
+
+See `.env.example` for more configuration options including timeout, retry settings, and proxy configuration.
 
 ## Polygon Development
 
@@ -128,21 +139,21 @@ cli/
 │   ├── core/         # Core functionality
 │   └── ...
 ├── bundle/           # Built CLI executable
-├── .env              # Local configuration
+├── .env.example      # Example configuration
 └── README.md         # This file
 ```
 
 ## Troubleshooting
 
 ### CLI not connecting to model
-1. Check if your model is running: `curl http://localhost:8080/v1/models`
-2. Verify the endpoint in `.env`
-3. Check the model name matches exactly
+1. Check if your model server is running
+2. Verify the endpoint URL in `.env`
+3. Check the model name matches your server's model
 
-### Node version warning
-PolyVibe requires Node.js 20+. Current version: 18.x
+### Node version requirements
+PolyVibe requires Node.js 20 or higher.
 ```bash
-# Update Node.js (recommended)
+# Update Node.js
 nvm install 20
 nvm use 20
 ```
