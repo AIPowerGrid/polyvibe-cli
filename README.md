@@ -8,20 +8,30 @@
 
 </div>
 
-## ✨ What's New in PolyVibe CLI
+## What's New in PolyVibe CLI
 
-- 🎨 **Galaxy-themed interface** with vibrant colors
-- 🔗 **Local model support** (GPT OSS 120B, Ollama, LM Studio, etc.)
-- 🌐 **Polygon-optimized** for dApp development
-- ⚡ **Commands**: `polyvibe` or `pv` for quick access
+- **Local model support** (GPT OSS 120B, Ollama, LM Studio, etc.)
+- **Polygon-optimized** for dApp development
+- **Commands**: `polyvibe` or `pv` for quick access
+- **DashScope Intl** support for Qwen models
 
-## 🚀 Quick Start with GPT OSS 120B
+## Quick Start with DashScope
 
-### 1. Make sure your GPT OSS 120B is running
+### 1. Get your DashScope API key
 
-Your local model should be accessible at: `http://localhost:8080/v1`
+Sign up at [DashScope International](https://dashscope.aliyuncs.com/) and get your API key.
 
-### 2. Run PolyVibe CLI
+### 2. Configure environment
+
+Edit `.env.example` to `.env` and add your key:
+
+```env
+OPENAI_API_KEY=your-dashscope-api-key
+OPENAI_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
+OPENAI_MODEL=qwen3-coder-plus
+```
+
+### 3. Run PolyVibe CLI
 
 ```bash
 cd /Users/j/polyvibe-cli/cli
@@ -35,17 +45,7 @@ npm link
 polyvibe  # or just: pv
 ```
 
-### 3. Configure for your model
-
-The CLI is pre-configured for GPT OSS 120B in `.env`:
-
-```env
-OPENAI_API_KEY=sk-no-key-required
-OPENAI_BASE_URL=http://localhost:8080/v1
-OPENAI_MODEL=gpt-oss-120b
-```
-
-## 📝 Usage Examples
+## Usage Examples
 
 ### Start a conversation
 ```bash
@@ -66,15 +66,7 @@ polyvibe "Help me create a Polygon NFT contract"
 - `/polygon` - Polygon development help
 - `/exit` - Exit PolyVibe
 
-## 🎨 Galaxy Color Scheme
-
-PolyVibe features a stunning galaxy-themed interface with:
-- 💜 Purple and violet gradients
-- 💙 Deep blue accents
-- 💖 Pink and magenta highlights
-- ⭐ Starry decorations
-
-## 🔧 Configuration
+## Configuration
 
 ### Using Different Models
 
@@ -92,6 +84,20 @@ OPENAI_BASE_URL=http://localhost:1234/v1
 OPENAI_MODEL=your-model-name
 ```
 
+**Local GPT OSS 120B:**
+```env
+OPENAI_API_KEY=sk-no-key-required
+OPENAI_BASE_URL=http://localhost:8080/v1
+OPENAI_MODEL=gpt-oss-120b
+```
+
+**DashScope Intl (Qwen models):**
+```env
+OPENAI_API_KEY=your-dashscope-api-key
+OPENAI_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
+OPENAI_MODEL=qwen3-coder-plus
+```
+
 **Cloud (OpenAI):**
 ```env
 OPENAI_API_KEY=your-actual-api-key
@@ -99,7 +105,7 @@ OPENAI_BASE_URL=https://api.openai.com/v1
 OPENAI_MODEL=gpt-4
 ```
 
-## 🌐 Polygon Development
+## Polygon Development
 
 PolyVibe is optimized for Polygon dApp development with:
 - Smart contract templates
@@ -107,13 +113,13 @@ PolyVibe is optimized for Polygon dApp development with:
 - Best practices for gas optimization
 - Mumbai testnet configuration
 
-## 📚 Documentation
+## Documentation
 
 - [Main PolyVibe README](../README.md)
 - [Development Setup](../DEVELOPMENT_SETUP.md)
 - [Original qwen-code docs](https://qwenlm.github.io/qwen-code-docs/)
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 cli/
@@ -126,7 +132,7 @@ cli/
 └── README.md         # This file
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### CLI not connecting to model
 1. Check if your model is running: `curl http://localhost:8080/v1/models`
@@ -146,18 +152,18 @@ nvm use 20
 sudo npm link  # If global install fails
 ```
 
-## 🤝 Contributing
+## Contributing
 
 See the main [CONTRIBUTING.md](../CONTRIBUTING.md) for guidelines.
 
-## 📄 License
+## License
 
 Apache 2.0 - See [LICENSE](../LICENSE)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Built on top of the excellent [qwen-code](https://github.com/QwenLM/qwen-code) project.
 
 ---
 
-**Ready to vibe with Polygon? Let's build! 🚀✨**
+**AI-powered coding for Polygon dApp development**
