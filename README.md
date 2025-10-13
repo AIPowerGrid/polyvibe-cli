@@ -72,49 +72,15 @@ polyvibe "Help me create a Polygon NFT contract"
 
 PolyVibe CLI works with any OpenAI-compatible API endpoint. Edit `.env` to configure your model:
 
-### Ollama (Local)
-```env
-OPENAI_API_KEY=ollama
-OPENAI_BASE_URL=http://localhost:11434/v1
-OPENAI_MODEL=llama3
-```
-
-### LM Studio (Local)
-```env
-OPENAI_API_KEY=lm-studio
-OPENAI_BASE_URL=http://localhost:1234/v1
-OPENAI_MODEL=your-model-name
-```
-
-### vLLM (Local)
-```env
-OPENAI_API_KEY=vllm
-OPENAI_BASE_URL=http://localhost:8000/v1
-OPENAI_MODEL=your-model-name
-```
-
-### LocalAI (Local)
-```env
-OPENAI_API_KEY=local
-OPENAI_BASE_URL=http://localhost:8080/v1
-OPENAI_MODEL=your-model-name
-```
-
-### OpenAI (Cloud)
-```env
-OPENAI_API_KEY=sk-your-actual-api-key
-OPENAI_BASE_URL=https://api.openai.com/v1
-OPENAI_MODEL=gpt-4
-```
-
-### Any other OpenAI-compatible API
 ```env
 OPENAI_API_KEY=your-api-key
-OPENAI_BASE_URL=https://your-endpoint.com/v1
+OPENAI_BASE_URL=http://localhost:11434/v1  # or your endpoint
 OPENAI_MODEL=your-model-name
 ```
 
-See `.env.example` for more configuration options including timeout, retry settings, and proxy configuration.
+Works with: Ollama, LM Studio, vLLM, LocalAI, OpenAI, or any OpenAI-compatible API.
+
+See `.env.example` for additional configuration options including timeout, retry settings, and proxy configuration.
 
 ## Polygon Development
 
