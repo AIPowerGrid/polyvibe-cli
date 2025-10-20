@@ -20,7 +20,6 @@
 ### 1. Install dependencies
 
 ```bash
-cd /Users/j/polyvibe-cli/cli
 npm install
 ```
 
